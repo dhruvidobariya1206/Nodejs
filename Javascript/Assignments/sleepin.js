@@ -13,5 +13,5 @@ function sleepIn(weekday, vacation){
     return false;
   }
   
-  let answer = sleepIn(true, false);
+  let answer = sleepIn(false, true);
   console.log(answer);
