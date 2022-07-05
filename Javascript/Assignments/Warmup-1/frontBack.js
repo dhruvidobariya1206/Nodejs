@@ -1,10 +1,10 @@
 function frontBack(str){
-    let f = str.charAt(0);
-    let l = str.charAt(str.length);
-
-    let a = str.substring(1, str.length-1);
-    let ans = l.concat(a,f);
-    return a;
+    if (str.length<=1) {
+        return str;
+    }
+    else {
+        return str.charAt(str.length-1)+str.substring(1,str.length-1)+str.charAt(0);
+    }
 }
 
 let answer = frontBack(false);
