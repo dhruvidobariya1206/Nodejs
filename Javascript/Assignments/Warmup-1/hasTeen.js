@@ -9,5 +9,5 @@ function hasTeen(a, b, c){
 
 }
 
-let answer = icyHot(35,125,15);
+let answer = hasTeen(35,125,15);
   console.log(answer);
