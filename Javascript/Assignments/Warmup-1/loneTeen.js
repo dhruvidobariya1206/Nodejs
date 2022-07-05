@@ -15,5 +15,5 @@ function loneTeen(a, b){
 
 }
 
-let answer = loneTeen(35,125,15);
+let answer = loneTeen(35,15);
   console.log(answer);

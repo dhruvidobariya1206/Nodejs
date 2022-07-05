@@ -1,5 +1,5 @@
 function missingChar(str, n){
-  if(n>=0 && n<str.length) {
+  if(n>=0 && n<=str.length) {
     return str.replace(str.charAt(n),'');
   }
   else {
@@ -8,5 +8,5 @@ function missingChar(str, n){
 
 }
 
-let answer = missingChar(false,3);
+let answer = missingChar('false',5);
   console.log(answer);
