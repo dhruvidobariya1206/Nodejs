@@ -9,5 +9,5 @@ function in1020(a, b){
 
 }
 
-let answer = icyHot(35,125);
+let answer = in1020(35,125);
   console.log(answer);
