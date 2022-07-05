@@ -9,5 +9,5 @@ function notString(str){
 
 }
 
-let answer = sleepIn(false);
+let answer = notString(false);
   console.log(answer);

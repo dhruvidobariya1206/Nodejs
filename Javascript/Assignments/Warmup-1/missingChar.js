@@ -8,5 +8,5 @@ function missingChar(str, n){
 
 }
 
-let answer = sleepIn(false);
+let answer = missingChar(false,3);
   console.log(answer);
