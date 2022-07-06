@@ -1,6 +1,6 @@
 function makeBricks(small, big, goal){
   
-    if((small+(big*5))==goal || small==goal || big*5==goal) {
+    if(goal%5<=small && goal-(big*5)<=small) {
         return true;
     }
     else {
