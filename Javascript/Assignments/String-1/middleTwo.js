@@ -7,4 +7,4 @@ function middleTwo(str){
 }
 
 let answer = middleTwo('Practice');
-  console.log(answer);
+console.log(answer);
