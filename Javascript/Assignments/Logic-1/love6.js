@@ -7,5 +7,5 @@ function love6(a, b){
     }
 }
 
-let answer = teenSum(10, 13);
+let answer = love6(10, 13);
 console.log(answer);
