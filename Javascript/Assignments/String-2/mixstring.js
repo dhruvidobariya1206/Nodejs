@@ -11,5 +11,5 @@ function mixString(a, b){
   return ans;
 }
 
-let answer = doubleChar('The');
+let answer = mixString('abc', 'xyz');
 console.log(answer);
