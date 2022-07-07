@@ -1,13 +1,11 @@
 function zipZap(str){
-    let i, ans;
-      for(i=0; i<str.length; i++) {
-          if(str.charAt(i)=='z' && str.charAt(i+2)=='p') {
-            console.log(str.charAt(i),str.charAt(i+2),i);
-              str = str.replace(str.charAt(i+1),'');
-              // console.log(str.charAt(i+1));
-          }
-      }
-      return str;
+  var a=""
+  for(var i=0;i<str.length;i++){
+    a=a+str.substring(i,i+1)
+    if(i>0&&i<str.length-1&&str.charAt(i-1)=='z'&&str.charAt(i+1)=='p')
+      a=a.substring(0,a.length-1)
+  }
+  return a
 
   }
 
