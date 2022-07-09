@@ -6,3 +6,4 @@ function count8(n){
     else if(n%10==8)
         return 1+count8(Math.floor(n/10));
     return count8(Math.floor(n/10));
+}
