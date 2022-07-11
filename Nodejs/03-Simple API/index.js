@@ -3,6 +3,8 @@ const info = require('./export-import');
 
 http.createServer((request, response) => {
     response.writeHead(200,{'Content-Type':'appliaction\json'});
-    response.write(JSON.stringify(info.information[1]));
+    response.write(JSON.stringify(info));
     response.end();
-  }).listen(5000);
+  }).listen(5000, () => {
+    console.log(`Server Connected ..`)
+  });
