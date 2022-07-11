@@ -30,7 +30,7 @@ fs.readdir(filesPath, (err,files)=>{
 });
 
 
-// Reading file contents
+// // Reading file contents
 fs.readdir(filesPath, (err,files)=>{
   if(err){
     console.log('Error reading directory...');
@@ -48,5 +48,5 @@ fs.readdir(filesPath, (err,files)=>{
     });
   }
 });
-Footer
-© 2022 GitHub, Inc.
+// Footer
+// © 2022 GitHub, Inc.
