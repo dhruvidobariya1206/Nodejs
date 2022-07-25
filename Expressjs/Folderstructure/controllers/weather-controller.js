@@ -16,7 +16,7 @@ class WeatherController {
                 console.log(body.error);
             } else {
                 console.log(body);
-                res.send(body)
+                resp.send(body)
                 resp.status(200).send({
                     status : true,
                     message : "Successfully collected the data",
