@@ -1,7 +1,8 @@
 class UserService {
     constructor() {
         this.userConfig = require("../config/user-config");
-        this.userModel = require("../models/user")
+        this.userModel = require("../models/user");
+        this.userDataModel = require("../models/user-data")
     }
     
     checkUserCredentials(email, password) {
@@ -137,9 +138,81 @@ class UserService {
             }
         }
     }
+
+    async insertUserData(userData) {
+        try {
+            let userDataInserted = await this.userDataModel.create(userData)
+            return {
+                status: true,
+                data: userDataInserted
+            }
+        }
+        catch(error) {
+            console.log(error);
+            return {
+                status: false,
+                message: 'Error in services while inserting user'
+            }
+        }
+    }
+
+    async collectUserDataOfUser(userId) {
+        try {
+            let allDataOfUser = await this.userModel.aggregate([
+                {
+                    $match: {_id: userId}
+                },
+                {
+                    $lookup: {
+                        from: 'user-data',
+                        localField: '_id',
+                        foreignField: 'user_id',
+                        as: 'userData'
+                    },
+                    
+                    $project: {
+                        name: 1,
+                        email: 1,
+                        mobile_number: 1,
+                        age: 1,
+                        id_card: '$userDatas.id_card',
+                        roll_number: '$userDatas.roll_number'
+                    }
+                }
+            ])
+
+            return {
+                status: true,
+                data: allDataOfUser
+            }
+        }
+        catch {
+            console.log(error);
+            return {
+                status: false,
+                message: 'Error in services while collecting all data of user'
+            }
+        }
+    }
 }
 
 module.exports = new UserService();
 
 //agregate function
-//references or 
+//references or lookups ==> join in sql
+
+// Find({})
+ 
+//match{}
+// sorting
+//skip
+//limit
+
+[
+    // {
+    //     $match: filter
+    // },
+    // {
+    //     $limit
+    // }
+]

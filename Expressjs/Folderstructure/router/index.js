@@ -27,6 +27,10 @@ class IndexRoute{
         this.router.delete('/delete-user',this.userController.deleteUser.bind(this.userController))
 
         this.router.patch('/update-user',this.userController.updateUser.bind(this.userController))
+
+        this.router.post('/insert-user-data',this.userController.insertUserData.bind(this.userController))
+
+        this.router.get('/collect-users-data:id',this.userController.collectUserData.bind(this.userController))
     }
 
 }
