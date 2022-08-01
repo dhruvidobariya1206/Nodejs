@@ -12,16 +12,7 @@ var userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
-    },
-    mobile_number: {
-        type: String,
-        maxLength: 10,
-        required: true
-    },
-    age: {
-        type: Number,
-        required: true
-    },
+    }
 });
 
-module.exports = mongoose.model("users", userSchema)
+module.exports = mongoose.model("Users", userSchema)
