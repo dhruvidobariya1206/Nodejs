@@ -2,7 +2,7 @@ class UserService {
     constructor() {
         this.userConfig = require("../config/user-config");
         this.userModel = require("../models/user");
-        this.userDataModel = require("../models/user-data")
+        // this.userDataModel = require("../models/user-data")
     }
     
     // checkUserCredentials(email, password) {
@@ -53,28 +53,27 @@ class UserService {
         }
     }
 
-    // async findUser(userEmail){
-    //     try{
-    //         //findOne function: returns single document or return null if user dont exist returns in mongodb object
+    async findUser(userEmail){
+        try{
+            //findOne function: returns single document or return null if user dont exist returns in mongodb object
 
-    //         let user = await this.userModel.findOne({email: userEmail}).lean()
-    //         user['dob'] = new Date()
-    //         // find function : return array of object(multiple document) or empty array returns in mongodb object
+            let user = await this.userModel.findOne({email: userEmail}).lean()
+            // find function : return array of object(multiple document) or empty array returns in mongodb object
 
-    //         //.lean() : converts mongodb object document to json format
+            //.lean() : converts mongodb object document to json format
 
-    //         return {
-    //             status:true,
-    //             data: user
-    //         }
-    //     }catch(error){
-    //         console.log(error);
-    //         return {
-    //             status: false,
-    //             message: 'Error in services while finding user'
-    //         }
-    //     }
-    // }
+            return {
+                status:true,
+                data: user
+            }
+        }catch(error){
+            console.log(error);
+            return {
+                status: false,
+                message: 'Error in services while finding user'
+            }
+        }
+    }
 
     // async getAllUser(){
     //     try{

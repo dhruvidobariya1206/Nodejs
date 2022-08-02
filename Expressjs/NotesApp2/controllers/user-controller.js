@@ -3,7 +3,7 @@ const { password } = require('../config/user-config');
 class UserController {
     constructor() {
         this.es6BindAll = require('es6bindall');
-        this.es6BindAll(this,['verifyUser','createUser'])
+        this.es6BindAll(this,['createUser'])
         this.userService = require('../services/user-service');
         this.mongoose = require('mongoose')
     }
@@ -34,28 +34,28 @@ class UserController {
         }
     }
 
-//     async findUser(req,resp) {
-//         try {
-//             let email = req.params.email;
-//             let findUser = await this.userService.findUser(email)
-//             if(findUser.status){
-//                 resp.status(200).send({
-//                     status:true,
-//                     Data: findUser.data
-//                 })
-//             } else {
-//                 resp.status(400).send({
-//                     status: false,
-//                     message: 'Error in finding user'
-//                 })
-//             }
-//         } catch (error) {
-//             resp.status(400).send({
-//                 status: false,
-//                 message: 'Error in controller while finding user'
-//             })
-//         }
-//     }
+    async findUser(req,resp) {
+        try {
+            let email = req.params.email;
+            let findUser = await this.userService.findUser(email)
+            if(findUser.status){
+                resp.status(200).send({
+                    status:true,
+                    Data: findUser.data
+                })
+            } else {
+                resp.status(400).send({
+                    status: false,
+                    message: 'Error in finding user'
+                })
+            }
+        } catch (error) {
+            resp.status(400).send({
+                status: false,
+                message: 'Error in controller while finding user'
+            })
+        }
+    }
 
 //     async getUser(req,resp){
 //         try{

@@ -20,7 +20,7 @@ class IndexRoute{
 
         this.router.post('/create-user',this.userController.createUser.bind(this.userController))
 
-        // this.router.get('/find-user',this.userController.findUser.bind(this.userController))
+        this.router.get('/find-user',this.userController.findUser.bind(this.userController))
 
         // this.router.get('/all-user',this.userController.getUser.bind(this.userController))
 
