@@ -75,40 +75,40 @@ class UserService {
         }
     }
 
-    // async getAllUser(){
-    //     try{
-    //         let allUsers = await this.userModel.find().lean()
-    //         return{
-    //             status:true,
-    //             Data: allUsers
-    //         }
-    //     }catch(error){
-    //         console.log(error);
-    //         return {
-    //             status: false,
-    //             message: 'Error in services while finding all user'
-    //         }
-    //     }
-    // }
+    async getAllUser(){
+        try{
+            let allUsers = await this.userModel.find().lean()
+            return{
+                status:true,
+                Data: allUsers
+            }
+        }catch(error){
+            console.log(error);
+            return {
+                status: false,
+                message: 'Error in services while finding all user'
+            }
+        }
+    }
 
-    // async deleteUser(userEmail) {
-    //     try{
-    //         //findOneAndDelete: delete single document
-    //         let deletedUser =  await this.userModel.findOneAndDelete({email: userEmail})
-    //         // deleteMany: delete multiple documents
+    async deleteUser(userEmail) {
+        try{
+            //findOneAndDelete: delete single document
+            let deletedUser =  await this.userModel.findOneAndDelete({email: userEmail})
+            // deleteMany: delete multiple documents
 
-    //         return{
-    //             status:true,
-    //             Data: deletedUser
-    //         }
-    //     } catch(error) {
-    //         console.log(error);
-    //         return {
-    //             status: false,
-    //             message: 'Error in services while deleting user'
-    //         }
-    //     }
-    // }
+            return{
+                status:true,
+                Data: deletedUser
+            }
+        } catch(error) {
+            console.log(error);
+            return {
+                status: false,
+                message: 'Error in services while deleting user'
+            }
+        }
+    }
 
     // async updateUser(userData){
     //     try{

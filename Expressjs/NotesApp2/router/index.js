@@ -22,9 +22,9 @@ class IndexRoute{
 
         this.router.get('/find-user',this.userController.findUser.bind(this.userController))
 
-        // this.router.get('/all-user',this.userController.getUser.bind(this.userController))
+        this.router.get('/all-user',this.userController.getUser.bind(this.userController))
 
-        // this.router.delete('/delete-user',this.userController.deleteUser.bind(this.userController))
+        this.router.delete('/delete-user',this.userController.deleteUser.bind(this.userController))
 
         // this.router.patch('/update-user',this.userController.updateUser.bind(this.userController))
 

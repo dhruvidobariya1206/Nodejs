@@ -36,7 +36,7 @@ class UserController {
 
     async findUser(req,resp) {
         try {
-            let email = req.params.email;
+            let email = req.body.email;
             let findUser = await this.userService.findUser(email)
             if(findUser.status){
                 resp.status(200).send({
@@ -57,51 +57,52 @@ class UserController {
         }
     }
 
-//     async getUser(req,resp){
-//         try{
-//             let allUser = await this.userService.getAllUser()
-//             if(allUser.status){
-//                 resp.status(200).send({
-//                     status:true,
-//                     Data: allUser.data
-//                 })
-//             } else {
-//                 resp.status(400).send({
-//                     status: false,
-//                     message: 'Error in finding all user'
-//                 })
-//             }
-//         } catch(error){
-//             resp.status(400).send({
-//                 status: false,
-//                 message: 'Error in controller while finding user'
-//             })
-//         }
-//     }
+    async getUser(req,resp){
+        try{
+            let allUser = await this.userService.getAllUser()
+            if(allUser.status){
+                resp.status(200).send({
+                    status:true,
+                    Data: allUser.data,
+                    message: 'found users'
+                })
+            } else {
+                resp.status(400).send({
+                    status: false,
+                    message: 'Error in finding all user'
+                })
+            }
+        } catch(error){
+            resp.status(400).send({
+                status: false,
+                message: 'Error in controller while finding user'
+            })
+        }
+    }
 
-//     async deleteUser(req,resp){
-//         try{
-//             let userEmail = req.body.email
-//             let deletedUser = await this.userService.deleteUser(userEmail)
+    async deleteUser(req,resp){
+        try{
+            let userEmail = req.body.email
+            let deletedUser = await this.userService.deleteUser(userEmail)
 
-//             if(deletedUser.status){
-//                 resp.status(200).send({
-//                     status:true,
-//                     Data: deletedUser.data
-//                 })
-//             } else {
-//                 resp.status(400).send({
-//                     status: false,
-//                     message: 'Error in deleting user'
-//                 })
-//             }
-//         } catch(error) {
-//             resp.status(400).send({
-//                 status: false,
-//                 message: 'Error in controller while deleting user'
-//             })
-//         }
-//     }
+            if(deletedUser.status){
+                resp.status(200).send({
+                    status:true,
+                    Data: deletedUser.data
+                })
+            } else {
+                resp.status(400).send({
+                    status: false,
+                    message: 'Error in deleting user'
+                })
+            }
+        } catch(error) {
+            resp.status(400).send({
+                status: false,
+                message: 'Error in controller while deleting user'
+            })
+        }
+    }
 
 //     async updateUser(req,resp){
 //         try{
